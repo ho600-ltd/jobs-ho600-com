@@ -221,7 +221,8 @@ function post_email ($self) {
             show_modal($('#danger_modal'), 'E-mail 錯誤', '請填寫正確格式的 E-mail !');
             return false;
         } else {
-            var data = {email: email, type: $('input[name=type]', $form).val()};
+            var type = $('input[name=type]', $form).val();
+            var data = {email: email, type: type};
             $.ajax({
                 url: "https://pqpmeji6f4.execute-api.us-west-2.amazonaws.com/prod/LambdaJobsHo600Com/",
                 data: JSON.stringify(data),
@@ -230,7 +231,12 @@ function post_email ($self) {
                 dataType: 'json',
                 complete: function (xhr, text) {
                     if (/\b200\b/.test(xhr.responseText)) {
-                        show_modal($('#primary_modal'), '執行成功', '感謝您的資料，我們等不及要在第一時間通知您!!!');
+                        if (type == 'employee') {
+                            var message = '感謝您的資料，我們等不及要在第一時間通知您!!!過幾天，會寄發考題給您過目，請先拭目以待。';
+                        } else {
+                            var message = '感謝您的資料，我們等不及要在第一時間通知您!!!';
+                        }
+                        show_modal($('#primary_modal'), '執行成功', message);
                         $('input[name="email"]', $form).val('');
                     } else {
                         show_modal($('#danger_modal'), '執行錯誤', '目前系統有誤，請稍候再登記，感謝您的耐心。');
