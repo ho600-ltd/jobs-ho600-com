@@ -45,7 +45,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="/#page-top">
                     <i class="fa fa-play-circle"></i>  <span class="light">到</span> 何六百(南投埔里)工作(徵1~2人)
                 </a>
             </div>
@@ -54,34 +54,34 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="/#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#salary">薪資福利</a>
+                        <a class="page-scroll" href="/#salary">薪資福利</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#workload">工作內容</a>
+                        <a class="page-scroll" href="/#workload">工作內容</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#workhours">彈性工時</a>
+                        <a class="page-scroll" href="/#workhours">彈性工時</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#vision">公司願景</a>
+                        <a class="page-scroll" href="/#vision">公司願景</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#limit">招募限制</a>
+                        <a class="page-scroll" href="/#limit">招募限制</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#flow">招募流程</a>
+                        <a class="page-scroll" href="/#flow">招募流程</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#apply">立即求職</a>
+                        <a class="page-scroll" href="/#apply">立即求職</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#faq">FAQ</a>
+                        <a class="page-scroll" href="/#faq">FAQ</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#question">提出問題</a>
+                        <a class="page-scroll" href="/#question">提出問題</a>
                     </li>
                 </ul>
             </div>
@@ -387,7 +387,7 @@
                         為滿足創辦人無法擔任律師的幻想，所以極度希望把本公司經營得像律師事務所一樣，收費照工作時數計算，每一位客戶就是一件獨立的專案，雖然喜愛開放原始碼，但也會對每一位客戶的營業秘密守口如瓶。
                     </p>
                     <p>
-                        上述是一種偏執的幻想，不符學習型組織的共同願景勾勒方法。須待員工進來後，我們來共同討論。本段目前請視為空白。
+                        上述是一種偏執的幻想，不符學習型組織的共同願景勾勒方法。須待員工進來後共同討論。本段文句目前請視為空白。
                     </p>
                 </div>
             </div>
@@ -497,15 +497,15 @@
                     <h2 class="text-center">FAQ</h2>
                     <ol class="p">
                         <li>
+                            本站內容會不會改變?
                             <ul class="p" style="list-style: none;">
-                                <li>Q: 本站內容會不會改變?</li>
-                                <li>A: 會，本公司所處的邊際條件也是一直在變的。像是勞基法彈性工時部份，法變了，我們就得因應。</li>
+                                <li>會，本公司所處的邊際條件也是一直在變的。像是勞基法彈性工時部份，法變了，我們就得因應。</li>
                             </ul>
                         </li>
                         <li>
+                            如果邊際條件不變，那內容也會變嗎?
                             <ul class="p" style="list-style: none;">
-                                <li>Q: 另如果邊際條件不變，那內容也會變嗎?</li>
-                                <li>A: 會，創辦人說話的保證效力保證低於美國國債，其 AA+ 等級的五年違約機率約為 0.166 %，創辦人自認無法比它還低。</li>
+                                <li>會，創辦人說話的保證效力保證低於美國國債，其 AA+ 等級的五年違約機率約為 0.166 %，創辦人自認無法比它還低。而在員工聘用程序中所簽訂的合約，則遵守中華民國法律。</li>
                             </ul>
                         </li>
                     </ol>
@@ -582,6 +582,14 @@ s.setAttribute('data-timestamp', +new Date());
       ga('create', 'UA-51085904-3', 'auto');
       ga('send', 'pageview');
 
+    </script>
+    <script src="/statics/js-cookie-master/src/js.cookie.js"></script>
+    <script>
+        var path = window.location.pathname;
+        if (path != '/') {
+            Cookies.set('path', path, { expires: 365, path: '' });
+            window.location = '/';
+        }
     </script>
 
 <div id="primary_modal" class="modal fade" tabindex='-1'>
