@@ -222,8 +222,8 @@ function post_email ($self) {
             return false;
         } else {
             var type = $('input[name=type]', $form).val();
-            var path = Cookies.get('path');
-            var data = {email: email, type: type, path: path};
+            var pathname = Cookies.get('pathname');
+            var data = {email: email, type: type, pathname: pathname};
             $.ajax({
                 url: "https://pqpmeji6f4.execute-api.us-west-2.amazonaws.com/prod/LambdaJobsHo600Com/",
                 data: JSON.stringify(data),

@@ -585,9 +585,9 @@ s.setAttribute('data-timestamp', +new Date());
     </script>
     <script src="/statics/js-cookie-master/src/js.cookie.js"></script>
     <script>
-        var path = window.location.pathname;
-        if (path != '/') {
-            Cookies.set('path', path, { expires: 365, path: '' });
+        var pathname = window.location.pathname;
+        if (pathname != '/') {
+            Cookies.set('pathname', pathname, {expires: 365, path: '/'});
             window.location = '/';
         }
     </script>
