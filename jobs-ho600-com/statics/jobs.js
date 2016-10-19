@@ -272,10 +272,8 @@ $(document).ready(function() {
 
 
     var d = new Date();
-    if (d > Date(2016, 0, 1, 0, 0, 0)) {
-        var s = '2015 ~ ' + d.getFullYear();
-        $('#copyright_year').text(s);
-    }
+    var s = '2015 ~ ' + d.getFullYear();
+    $('#copyright_year').text(s);
 
     $('form.my_form').submit(false);
 
