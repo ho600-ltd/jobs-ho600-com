@@ -224,6 +224,7 @@ function post_email ($self) {
             var type = $('input[name=type]', $form).val();
             var pathname = Cookies.get('pathname');
             var data = {email: email, type: type, pathname: pathname};
+            $('input[name="email"]', $form).val("");
             $.ajax({
                 url: "https://pqpmeji6f4.execute-api.us-west-2.amazonaws.com/prod/LambdaJobsHo600Com/",
                 data: JSON.stringify(data),
@@ -238,8 +239,8 @@ function post_email ($self) {
                             var message = '感謝您的資料，我們等不及要在第一時間通知您!!!';
                         }
                         show_modal($('#primary_modal'), '執行成功', message);
-                        $('input[name="email"]', $form).val('');
                     } else {
+                        $('input[name="email"]', $form).val(email);
                         show_modal($('#danger_modal'), '執行錯誤', '目前系統有誤，請稍候再登記，感謝您的耐心。');
                     }
                 }
