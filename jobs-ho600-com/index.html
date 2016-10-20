@@ -5,8 +5,8 @@
     <meta property="fb:app_id" content="483015181718546" />
     <meta property="og:title" content="到 何六百(南投埔里)工作(徵1~2人)" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://jobs.ho600.com" />
-    <meta property="og:image" content="http://jobs.ho600.com/statics/images/light_bg.png" />
+    <meta property="og:url" content="https://jobs.ho600.com" />
+    <meta property="og:image" content="https://jobs.ho600.com/statics/images/light_bg.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="200" />
     <meta property="og:image:height" content="199" />
@@ -40,12 +40,21 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <script src="/statics/js-cookie-master/src/js.cookie.js"></script>
     <script>
+        var keep_going_on_str = document.title;
+        var keep_going_on = function () {
+            keep_going_on_str = '等. ' + keep_going_on_str;
+            document.title = keep_going_on_str;
+            setTimeout("keep_going_on()", 500);
+        }
         var pathname = window.location.pathname;
         if (pathname != '/') {
             var e = document.getElementById("page-top");
             e.style.visibility = 'hidden';
             Cookies.set('pathname', pathname, {expires: 365, path: '/'});
-            window.location = '/';
+            setTimeout("keep_going_on()", 500);
+            setTimeout(function () {
+                window.location = '/';
+            }, 5000);
         }
     </script>
     <!-- Navigation -->
