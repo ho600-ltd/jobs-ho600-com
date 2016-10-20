@@ -38,6 +38,16 @@
     <![endif]-->
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <script src="/statics/js-cookie-master/src/js.cookie.js"></script>
+    <script>
+        var pathname = window.location.pathname;
+        if (pathname != '/') {
+            var e = document.getElementById("page-top");
+            e.style.visibility = 'hidden';
+            Cookies.set('pathname', pathname, {expires: 365, path: '/'});
+            window.location = '/';
+        }
+    </script>
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
@@ -583,15 +593,6 @@ s.setAttribute('data-timestamp', +new Date());
       ga('send', 'pageview');
 
     </script>
-    <script src="/statics/js-cookie-master/src/js.cookie.js"></script>
-    <script>
-        var pathname = window.location.pathname;
-        if (pathname != '/') {
-            Cookies.set('pathname', pathname, {expires: 365, path: '/'});
-            window.location = '/';
-        }
-    </script>
-
 <div id="primary_modal" class="modal fade" tabindex='-1'>
   <div class="modal-dialog">
     <div class="modal-content">
