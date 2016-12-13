@@ -55,6 +55,12 @@
             setTimeout(function () {
                 window.location = '/';
             }, 5000);
+        } else if (window.location.search) {
+            var s = window.location.search;
+            var re = /p=([a-z0-9]+)/i.exec(s);
+            if(re.length > 0) {
+                Cookies.set('pathname', re[1], {expires: 365, path: '/'});
+            }
         }
     </script>
     <!-- Navigation -->
