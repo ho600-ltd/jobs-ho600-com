@@ -235,7 +235,7 @@ function post_email ($self) {
                     if (/\b200\b/.test(xhr.responseText)) {
                         if (type == 'apply-account-at-exam.yueh-cake.com') {
                             var json = $.parseJSON(xhr.responseText);
-                            var message = "請製作<div class='text-danger'>applicants (applicants) &lt;"+json['message']+"&gt; </div>的 PGP 公私錀，<span class='text-danger'>姓名、註釋須設為 applicants </span>，並於 24 小時內上傳公錀及 14 位驗證碼至筆試網站。";
+                            var message = "請製作<div class='text-danger'>applicants (applicants) &lt;"+json['message']+"&gt; </div>的 PGP 公私錀，<span class='text-danger'>姓名、註釋須設為 applicants ，格式為 RSA 支援加密及簽章</span>，並於 24 小時內上傳公錀及 14 位驗證碼至筆試網站。";
                         } else if (type == 'employee') {
                             var message = '感謝您的資料，我們等不及要在第一時間通知您!!!過幾天，會寄發考題給您過目，請先拭目以待。';
                         } else {
