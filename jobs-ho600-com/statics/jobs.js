@@ -217,11 +217,11 @@ function post_email ($self) {
         var EMAIL_RE = /^[\w\+_-]+(\.[\w\+_-]+)*@[\w-]+(\.[\w-]+)*\.\w+$/;
         var $form = $self.parents('form');
         var email = $('input[name="email"]', $form).val();
-        if (!email || !EMAIL_RE.test(email)) {
+        var type = $('input[name=type]', $form).val();
+        if (type != "apply-account-at-exam.yueh-cake.com" && (!email || !EMAIL_RE.test(email))) {
             show_modal($('#danger_modal'), 'E-mail 錯誤', '請填寫正確格式的 E-mail !');
             return false;
         } else {
-            var type = $('input[name=type]', $form).val();
             var pathname = Cookies.get('pathname');
             var data = {email: email, type: type, pathname: pathname};
             $('input[name="email"]', $form).val("");
@@ -233,7 +233,10 @@ function post_email ($self) {
                 dataType: 'json',
                 complete: function (xhr, text) {
                     if (/\b200\b/.test(xhr.responseText)) {
-                        if (type == 'employee') {
+                        if (type == 'apply-account-at-exam.yueh-cake.com') {
+                            var json = $.parseJSON(xhr.responseText);
+                            var message = "請製作<div class='text-danger'>applicants (applicants) &lt;"+json['message']+"&gt; </div>的 PGP 公私錀，<span class='text-danger'>姓名、註釋須設為 applicants </span>，並於 24 小時內上傳公錀及 14 位驗證碼至筆試網站。";
+                        } else if (type == 'employee') {
                             var message = '感謝您的資料，我們等不及要在第一時間通知您!!!過幾天，會寄發考題給您過目，請先拭目以待。';
                         } else {
                             var message = '感謝您的資料，我們等不及要在第一時間通知您!!!';
