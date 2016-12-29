@@ -468,8 +468,11 @@
                         <li>於 24 小時內上傳<span class="text-danger">公錀</span>至筆試網站，並註冊帳戶</li>
                         <li>至筆試網站寫一封加密信，加密錀匙為上述應聘帳號之 PGP 公錀及 <a href="#">jobs.at.ho600@yueh-cake.com</a> 公錀(ID: )，信件內容為 md5("<span class="text-success">${應聘人之中華民國身份證號後 8 碼數字}</span><span class="text-info">${應聘人之中華民國身份證上載明出生年月日(限數字，無區隔符)}</span><span class="text-success">${應聘人之中華民國身份證上載明發證年月日(限數字，無區隔符)}</span><span class="text-info">${應聘人之中華民國身份證背面之空白身分證流水號(依序*任*選 5 碼)}</span>".replace(/[^0-9]/g, ""))[:<span class="text-danger">14</span>] 之前 <span class="text-danger">14</span> 碼字串。<span class="text-danger">請注意</span>： 是傳 <span class="text-danger">14</span> 碼的 md5 驗證碼，而不是直接傳身份證號及出生年月日，後兩者資訊會觸犯招募限制第 2 條規定，此封信也需經由筆試網站寄出，以個人或他人信箱寄出一樣觸犯招募限制第 2 條規定。此 <span class="text-danger">14</span> 碼的 md5 驗證碼乃用在錄取程序上，屆時應聘者須提出有效之中華民國身份證以示該應聘帳號為其所擁用，如<span class="text-danger">不符者勢難聘用</span>。如應聘人擔心屆時無法拿出此驗證碼所對應的中華民國身份證原件，建議先將它的正反面以高解析相機(手機)拍下，並妥善保存電子檔以供錄取時與新身份證正本一同檢驗</li>
                         <li>
-                            筆試為分次出題，題目總共有 8 題，考題沒有範圍，每題也只有一次答題機會，出題速度依據應聘人的答題品質而定，愈高者出題愈快。<span class="text-danger">在回傳答案時，請務必考量筆試網站只能透過純文字(且須用應聘帳號私錀簽章)回傳</span>。其中必出的 3 題如下：
+                            筆試為分次出題，題目總共有 8 題，考題沒有範圍，每題也只有一次答題機會，出題速度依據應聘人的答題品質而定，愈高者出題愈快。<span class="text-danger">在回傳答案時，請務必考量筆試網站只能透過純文字(且須用應聘帳號私錀簽章)回傳</span>。以下為題庫：
                             <ol class="p">
+                                <li><p>
+                                    請建立一個 hg 或 git 的儲存庫，庫內的檔案將包含你接下來要回答的 7 個題目。在作 commit 時，請填寫合宜的說明、使用應聘帳號為 committer ，並選擇在適當的時機，表現你懂得使用 branch 及 merge 功能，最終在 default branch(hg) 或是 master branch(git) 顯示你的所有答案。此儲存庫在回傳給考試委員前，請注意要消除 remote(push) url 的蹤跡。
+                                </p></li>
                                 <li><p>600 是某數學問題的答案，請你推敲、說明「某數學問題」為何? 並以「敝司創辦人智力」為基準，為他列出求解過程。</p>
                                     <p>「某數學問題」的難度愈高得分愈高，但若超過「敝司創辦人」智力所能理解的部份，那就會沒有分數。</p>
                                     <p>給個提示，「敝司創辦人」不懂「Riemann integral」。</p>
@@ -488,6 +491,22 @@
                                 <li>
                                     <p>In this recruitment web site: We ask you to send the 14-digits md5 code.  Please describe the reason about the 14-digits, why not choose 13-digits or 15-digits or anything else?</p>
                                 </li>
+                                <li>
+                                    <p>
+                                        用 Python 撰寫一個遞迴函式。
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        使用 Django 、 Bootstrap 及其他開放源始碼工具建構一個網站，該網站只有一個頁面，該頁面只有一個表單、一個列表，頁面功能有兩個： 可留言、留言後的內容列表顯示在該頁面。建構此網站時，需使用 virtualenv ，並用 pip freeze > requirements.txt 紀錄所用的開放源始碼函式庫，而其他的 js/css 函式庫請直接加進儲存庫。
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        會提供一組 AWS 金錀及 ssh 私錀，讓你登入一台 Ubuntu EC2 Instance ，請在該機器內使用 tarball 方式，安裝 nginx/uwsgi 伺服器及用 apt-get 安裝 PostgreSQL 伺服器，並放置上述題目的 Django 網站成果。除了考試委員會從 80 port 去檢查設定成果，另需將登入機器後的 command history 補入題一所生成的儲存庫。
+                                    </p>
+                                </li>
+                                <li><p>說說你想要拿那些開放原始碼函式庫來建構什麼樣的網站服務。純打嘴炮，不寫 code 。</p></li>
                             </ol>
                             如未答滿 8 題，卻又遲遲未接到新的題目，意謂考試委員<span class="text-danger">十分不滿意</span>您的答案，選擇無限期停問，請勿來信詢問或是催促出題。敝公司開發的筆試網站，保證應聘人必定會拿到試題(前提是您要登入筆試網站)，如未拿到試題，考試委員會接到系統警告，於此，您久久未拿到試題，<span class="text-danger">絕對</span>是考試委員認定您目前的資質不好，請再多自學一陣子，之後再來應聘，反正<span class="text-danger">考試委員也不會知道您的新帳號是與之前那個舊帳號一樣</span>
                         </li>
