@@ -221,6 +221,11 @@ function post_email ($self) {
         if (type != "apply-account-at-exam.yueh-cake.com" && (!email || !EMAIL_RE.test(email))) {
             show_modal($('#danger_modal'), 'E-mail 錯誤', '請填寫正確格式的 E-mail !');
             return false;
+        } else if ("apply-account-at-exam.yueh-cake.com" == type) {
+            show_modal($('#danger_modal'),
+                       '職缺關閉',
+                       '十分抱歉，目前沒有徵才需要，可使用上方「註冊信箱收通知信」'
+                       +'按鈕註冊你的信箱，待職缺開放後，立即通知。謝謝。');
         } else {
             var pathname = Cookies.get('pathname');
             var data = {email: email, type: type, pathname: pathname};
