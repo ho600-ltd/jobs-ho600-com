@@ -1,0 +1,44 @@
+version: 0.2
+
+phases:
+  install:
+    #如果使用 Ubuntu 標準映像 2.0 或更新版本，您必須指定執行時間版本。
+    #如果指定執行時間版本且使用非 Ubuntu 標準映像 2.0 的映像，建置會失敗。
+    runtime-versions:
+      python: 3.7
+      # name: version
+    #commands:
+      # - command
+      # - command
+  pre_build:
+    commands:
+      - pip install --upgrade pip
+      - pip install --upgrade awscli
+      # - command
+  build:
+    commands:
+      #- echo "{\"VERSION\": \""${CODEBUILD_SOURCE_VERSION}"\"}" > jobs-ho600-com/__version__.json
+      - export COMMIT_CHANGESET=$(git rev-parse HEAD)
+      - export BUILD_TIME=$(date +%Y-%m-%dT%H:%M:%S%z)
+      - echo -e '{ "BUILD_TIME"':' "'${BUILD_TIME}'",\n   "COMMIT_CHANGESET"':' "'${COMMIT_CHANGESET}'" }' > jobs-ho600-com/__version__.json
+      - echo -e '{ "BUILD_TIME"':' "'${BUILD_TIME}'",\n   "COMMIT_CHANGESET"':' "'${COMMIT_CHANGESET}'" }' > promo-jobs-ho600-com/__version__.json
+      - aws s3 cp --recursive jobs-ho600-com s3://jobs.ho600.com
+      - aws s3 cp --recursive promo-jobs-ho600-com s3://promo-jobs.ho600.com
+  #post_build:
+    #commands:
+      # - command
+      # - command
+#artifacts:
+  #files:
+    #- jobs-ho600-com/*
+  #secondary-artifacts:
+    #promo:
+      #files:
+        #- promo-jobs-ho600-com/*
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - paths
