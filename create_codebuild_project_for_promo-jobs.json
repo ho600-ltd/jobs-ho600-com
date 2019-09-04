@@ -21,7 +21,7 @@
             {
                 "name": "WHATEVER",
                 "value": "WHATVALUE",
-                "type": "PARAMETER_STORE"
+                "type": "PLAINTEXT"
             }
         ],
         "privilegedMode": true,
