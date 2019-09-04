@@ -21,6 +21,8 @@ phases:
       - export COMMIT_CHANGESET=$(git rev-parse HEAD)
       - export BUILD_TIME=$(date +%Y-%m-%dT%H:%M:%S%z)
       - echo -e '{ "BUILD_TIME"':' "'${BUILD_TIME}'",\n   "COMMIT_CHANGESET"':' "'${COMMIT_CHANGESET}'" }' > promo-jobs-ho600-com/__version__.json
+      - sed -i -e "s/\${BUILD_TIME}/${BUILD_TIME}/g" promo-jobs-ho600-com/index.html
+      - sed -i -e "s/\${REVISION}/${COMMIT_CHANGESET}/g" promo-jobs-ho600-com/index.html
       - aws s3 cp --recursive promo-jobs-ho600-com s3://promo-jobs.ho600.com
   #post_build:
     #commands:
