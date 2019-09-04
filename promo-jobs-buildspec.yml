@@ -19,7 +19,7 @@ phases:
     commands:
       #- echo "{\"VERSION\": \""${CODEBUILD_SOURCE_VERSION}"\"}" > jobs-ho600-com/__version__.json
       - export COMMIT_CHANGESET=$(git rev-parse HEAD)
-      - export SHORT_COMMIT_CHANGESET=${COMMIT_CHANGESET:0:7}
+      - export SHORT_COMMIT_CHANGESET=$(git rev-parse --short=7 HEAD)
       - export BUILD_TIME=$(date +%Y-%m-%dT%H:%M:%S%z)
       - echo -e '{ "BUILD_TIME"':' "'${BUILD_TIME}'",\n   "COMMIT_CHANGESET"':' "'${COMMIT_CHANGESET}'" }' > promo-jobs-ho600-com/__version__.json
       - sed -i -e "s/\${BUILD_TIME}/${BUILD_TIME}/g" promo-jobs-ho600-com/index.html
